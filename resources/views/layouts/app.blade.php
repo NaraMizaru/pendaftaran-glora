@@ -17,6 +17,9 @@
         @yield('content')
     </div>
 
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery-easing/jquery-easing.min.js') }}"></script>
     <script src="{{ asset('js/sb-glora.min.js') }}"></script>
     @stack('js')
 </body>

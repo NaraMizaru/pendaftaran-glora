@@ -39,6 +39,15 @@
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger border-left-danger" role="alert">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="form-group">
                                 <label for="namaSekolah" class="form-label">Nama Sekolah</label>
                                 <input type="text" class="form-control" name="nama_sekolah" id="namaSekolah"
                                     placeholder="Masukan Nama Sekolah" required>
@@ -54,18 +63,18 @@
                                             placeholder="Masukan Jumlah Team" value="0" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="tandu" class="form-label">Tandu</label>
+                                        <label for="tandu" class="form-label">Tandu Darurat</label>
                                         <input type="number" class="form-control" id="tandu" name="tandu"
                                             placeholder="Masukan Jumlah Team" value="0" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="karikatur" class="form-label">Karikatur</label>
+                                        <label for="karikatur" class="form-label">Karikatur (Poster)</label>
                                         <input type="number" class="form-control" id="karikatur" name="karikatur"
                                             placeholder="Masukan Jumlah Team" value="0" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="dapurUmum" class="form-label">Dapur Umum</label>
-                                        <input type="number" class="form-control" id="dapurUmum" name="du"
+                                        <label for="dapurKreasi" class="form-label">Dapur Kreasi</label>
+                                        <input type="number" class="form-control" id="dapurKreasi" name="du"
                                             placeholder="Masukan Jumlah Team" value="0" required>
                                     </div>
                                     <div class="form-group">
@@ -108,8 +117,8 @@
                                             <div class="col-md-4 col-12 mt-2">
                                                 <div class="card">
                                                     <div class="card-body text-center">
-                                                        Dapur Kreasi x <span id="dapurUmumQty">0</span> = <span
-                                                            id="dapurUmumHarga">Rp. 0</span>
+                                                        Dapur Kreasi x <span id="dapurKreasiQty">0</span> = <span
+                                                            id="dapurKreasiHarga">Rp. 0</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,9 +152,11 @@
                                                             <span style="font-weight: bold">1820013709563</span>
                                                         </p>
                                                         <p>- Jangan lupa konfirmasi ke nomor berikut:</p>
-                                                        <p>📞 Natasya Dzuniar: <a href="https://wa.me/6285864532991">+62
+                                                        <p>📞 Natasya Dzuniar: <a href="https://wa.me/6285864532991"
+                                                                target="_blank">+62
                                                                 858-6453-2991</a></p>
-                                                        <p>📞 Hafsari Nurlail: <a href="https://wa.me/6283809444577">+62
+                                                        <p>📞 Hafsari Nurlail: <a href="https://wa.me/6283809444577"
+                                                                target="_blank">+62
                                                                 838-0944-4577</a></p>
                                                     </div>
                                                 </div>
@@ -153,9 +164,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">Bukti Pembayaran</label>
@@ -179,7 +187,7 @@
             pertolonganPertama: 45000,
             tandu: 45000,
             karikatur: 45000,
-            dapurUmum: 50000,
+            dapurKreasi: 50000,
             prsKonselor: 50000,
             prsKabaret: 50000
         };

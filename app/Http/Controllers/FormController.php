@@ -22,7 +22,8 @@ class FormController extends Controller
             'karikatur' => 'required',
             'du' => 'required',
             'konselor' => 'required',
-            'kabaret' => 'required'
+            'kabaret' => 'required',
+            'bukti_pembayaran' => 'required|file'
         ]);
 
         if ($validator->fails()) {
