@@ -141,7 +141,7 @@
                                             <div class="col-12 mt-2">
                                                 <div class="card">
                                                     <div class="card-body text-center">
-                                                        Total Harga = <span id="totalHarga">Rp. 0</span>
+                                                        Total Yang Harus Di Bayargit = <span id="totalHarga">Rp. 0</span>
                                                     </div>
                                                 </div>
                                             </div>
