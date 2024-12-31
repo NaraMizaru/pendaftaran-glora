@@ -22,5 +22,7 @@ Route::redirect('/', '/form');
 
 Route::controller(FormController::class)->group(function () {
     Route::get('/form', 'index')->name('form.index');
+    Route::get('/regist/success', 'success')->name('form.success');
+
     Route::post('/form', 'daftar')->name('form.daftar');
 });

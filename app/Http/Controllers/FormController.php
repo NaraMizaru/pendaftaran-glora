@@ -62,6 +62,11 @@ class FormController extends Controller
         }
         $form->save();
 
-        return redirect()->route('form.index')->with('success', 'Formulir berhasil disimpan');
+        return redirect()->route('form.success')->with('success', 'Formulir berhasil disimpan');
+    }
+
+    public function success()
+    {
+        return view('form.after-register');
     }
 }
