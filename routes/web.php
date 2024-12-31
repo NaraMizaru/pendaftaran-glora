@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::redirect('/', '/form');
+
 Route::controller(FormController::class)->group(function () {
     Route::get('/form', 'index')->name('form.index');
     Route::post('/form', 'daftar')->name('form.daftar');
