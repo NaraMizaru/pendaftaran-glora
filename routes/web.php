@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,8 @@ Route::controller(FormController::class)->group(function () {
     Route::get('/regist/success', 'success')->name('form.success');
 
     Route::post('/form', 'daftar')->name('form.daftar');
+});
+
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard', 'index')->name('dashboard.index');
 });

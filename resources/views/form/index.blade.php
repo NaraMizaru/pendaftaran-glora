@@ -136,9 +136,26 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-12 mt-2">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <p>- Transfer ke: Mandiri (a.n Asri Wahyuni Shafari)
+                                                            <span style="font-weight: bold">1820013709563</span>
+                                                        </p>
+                                                        <p>- Jangan lupa konfirmasi ke nomor berikut:</p>
+                                                        <p>📞 Natasya Dzuniar: <a href="https://wa.me/6285864532991">+62
+                                                                858-6453-2991</a></p>
+                                                        <p>📞 Hafsari Nurlail: <a href="https://wa.me/6283809444577">+62
+                                                                838-0944-4577</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">Bukti Pembayaran</label>
