@@ -24,7 +24,7 @@ class DashboardController extends Controller
     public function exportData(Request $request)
     {
         if ($request->query('key') == env('DASHBOARD_KEY')) {
-            return Excel::download(new FormExport, 'data-pendaftar-glora' . Carbon::now()->format('d-m-Y') . '.xlsx');
+            return Excel::download(new FormExport, 'data-pendaftar-glora-' . Carbon::now()->format('d-m-Y') . '.xlsx');
         }
 
         return abort(403);
