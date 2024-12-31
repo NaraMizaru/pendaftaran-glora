@@ -21,7 +21,11 @@
                     <div class="col">
                         <h3 class="text-white">List Pendaftar</h3>
                     </div>
-                    <div class="ml-auto"></div>
+                    <div class="ml-auto">
+                        <a href="{{ route('dashboard.export', ['key' => env('DASHBOARD_KEY')]) }}"
+                            class="btn btn-success">Download
+                            Excel</a>
+                    </div>
                 </div>
             </div>
             <div class="card-body">

@@ -30,4 +30,10 @@ Route::controller(FormController::class)->group(function () {
 
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard', 'index')->name('dashboard.index');
+    Route::get('/dashboard/export-data', 'exportData')->name('dashboard.export');
+});
+
+Route::get('/test', function () {
+    $data['form'] = \App\Models\Form::all();
+    return view('form.export.pendaftar')->with($data);
 });
