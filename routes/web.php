@@ -37,4 +37,5 @@ Route::controller(DashboardController::class)->group(function () {
 Route::controller(BantuanController::class)->group(function () {
     Route::get('/dukungan', 'index')->name('dukungan.index');
     Route::post('/dukungan/store', 'store')->name('dukungan.store');
+    Route::get('/dukungan/export-data', 'exportData')->name('dukungan.export');
 });

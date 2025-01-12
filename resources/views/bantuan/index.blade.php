@@ -23,7 +23,15 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header bg-danger">
-                            <h4 class="text-white">Daftar Dukungan Yang Sudah Masuk</h4>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="text-white">Daftar Dukungan Yang Sudah Masuk</h4>
+                                </div>
+                                <div class="col">
+                                    <a href="{{ route('dukungan.export', ['key' => env('BANTUAN_KEY')]) }}"
+                                        class="btn btn-success float-right">Export Excel</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

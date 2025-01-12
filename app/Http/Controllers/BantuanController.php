@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DukunganExport;
 use App\Models\Dukungan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BantuanController extends Controller
 {
@@ -42,5 +45,12 @@ class BantuanController extends Controller
         }
 
         return redirect()->route('form.daftar');
+    }
+
+    public function exportData(Request $request)
+    {
+        if ($request->query('key') == env('BANTUAN_KEY')) {
+            return Excel::download(new DukunganExport(), 'data-dukungan-glora-' . Carbon::now()->format('d-m-Y') . '.xlsx');
+        }
     }
 }
