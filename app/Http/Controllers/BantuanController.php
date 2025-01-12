@@ -11,7 +11,7 @@ class BantuanController extends Controller
     public function index(Request $request)
     {
         if ($request->query('key') == env('BANTUAN_KEY')) {
-            $data['dukungan'] = Dukungan::orderBy('created_at', 'desc')->get();
+            $data['dukungan'] = Dukungan::orderBy('created_at', 'asc')->get();
 
             return view('bantuan.index')->with($data);
         }
@@ -29,7 +29,7 @@ class BantuanController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return redirect()->route('dukungan.index')->withErrors($validator->errors())->withInput($request->all());
+                return redirect()->back()->withErrors($validator->errors())->withInput($request->all());
             }
 
             $dukungan = new Dukungan();
