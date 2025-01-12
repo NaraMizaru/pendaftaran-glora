@@ -26,24 +26,28 @@
                             <h4 class="text-white">Daftar Dukungan Yang Sudah Masuk</h4>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered no-wrap-w-100 mt-3" id="table-1">
-                                <thead class="bg-secondary">
-                                    <tr class="text-white">
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Nama</th>
-                                        <th class="text-center">Dukungan</th>
-                                        <th class="text-center">Angkatan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td class="text-center">Hilal</td>
-                                        <td class="text-center">Uang</td>
-                                        <td class="text-center">2025</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-bordered mt-3" id="table-1">
+                                    <thead class="bg-secondary">
+                                        <tr class="text-white">
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Nama</th>
+                                            <th class="text-center">Dukungan</th>
+                                            <th class="text-center">Angkatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($dukungan as $item)
+                                            <tr>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
+                                                <td class="text-center">{{ $item->nama }}</td>
+                                                <td class="text-center">{{ $item->dukungan }}</td>
+                                                <td class="text-center">{{ $item->angkatan }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +57,23 @@
                             <h4 class="text-white">Form Dukungan</h4>
                         </div>
                         <div class="card-body">
-                            <form action="">
+                            <form action="{{ route('dukungan.store', ['key' => env('BANTUAN_KEY')]) }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    @if (Session::has('success'))
+                                        <div class="alert alert-success border-left-success" role="alert">
+                                            {{ Session::get('success') }}
+                                        </div>
+                                    @endif
+
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger border-left-danger" role="alert">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
                                 <div class="form-group">
                                     <label for="nama">Nama</label>
                                     <input type="text" class="form-control" id="nama" name="nama" required>
@@ -82,9 +102,7 @@
     <script src="{{ asset('vendor/DataTables/datatables.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#table-1').DataTable({
-                responsive: true,
-            });
+            $('#table-1').DataTable();
         });
     </script>
 @endpush
