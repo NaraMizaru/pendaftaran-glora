@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BantuanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,6 @@ Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard/export-data', 'exportData')->name('dashboard.export');
 });
 
-Route::get('/test', function () {
-    $data['form'] = \App\Models\Form::all();
-    return view('form.export.pendaftar')->with($data);
+Route::controller(BantuanController::class)->group(function () {
+    Route::get('/dukungan', 'index')->name('dukungan.index');
 });

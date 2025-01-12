@@ -18,7 +18,7 @@ class DashboardController extends Controller
             return view('dashboard')->with($data);
         }
 
-        return abort(403);
+        return redirect()->route('form.daftar');
     }
 
     public function exportData(Request $request)
@@ -27,6 +27,6 @@ class DashboardController extends Controller
             return Excel::download(new FormExport, 'data-pendaftar-glora-' . Carbon::now()->format('d-m-Y') . '.xlsx');
         }
 
-        return abort(403);
+        return redirect()->route('form.daftar');
     }
 }
