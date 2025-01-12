@@ -24,10 +24,10 @@
                     <div class="card">
                         <div class="card-header bg-danger">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-12 ">
                                     <h4 class="text-white">Daftar Dukungan Yang Sudah Masuk</h4>
                                 </div>
-                                <div class="col">
+                                <div class="col-12 ">
                                     <a href="{{ route('dukungan.export', ['key' => env('BANTUAN_KEY')]) }}"
                                         class="btn btn-success float-right">Export Excel</a>
                                 </div>
