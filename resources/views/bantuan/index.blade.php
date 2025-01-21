@@ -65,7 +65,8 @@
                             <h4 class="text-white">Form Dukungan</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dukungan.store', ['key' => env('BANTUAN_KEY')]) }}" method="POST">
+                            <form action="{{ route('dukungan.store', ['key' => env('BANTUAN_KEY')]) }}" method="POST"
+                                class="form-with-loading">
                                 @csrf
                                 <div class="form-group">
                                     @if (Session::has('success'))
@@ -94,8 +95,13 @@
                                     <label for="angkatan">Angkatan</label>
                                     <input type="text" class="form-control" id="angkatan" name="angkatan" required>
                                 </div>
+
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-warning float-right mt-2">Kirim Dukungan</button>
+                                    <button type="submit" class="btn btn-warning btn-user btn-block btn-loading">
+                                        <span class="btn-text">Kirim Dukungan</span>
+                                        <span class="spinner-border spinner-border-sm d-none" role="status"></span>
+                                    </button>
+                                    {{-- <button type="submit" class="btn btn-warning float-right mt-2">Kirim Dukungan</button> --}}
                                 </div>
                             </form>
                         </div>

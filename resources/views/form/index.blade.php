@@ -35,7 +35,8 @@
                             <div class="ml-auto"></div>
                         </div>
                     </div>
-                    <form action="{{ route('form.daftar') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('form.daftar') }}" method="POST" enctype="multipart/form-data"
+                        class="form-with-loading">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -171,7 +172,10 @@
                                     required>
                             </div>
                             <div class="form-group mt-4">
-                                <button type="submit" class="btn btn-warning w-100">Daftar Sekarang</button>
+                                <button type="submit" class="btn btn-warning btn-user btn-block btn-loading">
+                                    <span class="btn-text">Daftar Sekarang</span>
+                                    <span class="spinner-border spinner-border-sm d-none" role="status"></span>
+                                </button>
                             </div>
                         </div>
                     </form>
