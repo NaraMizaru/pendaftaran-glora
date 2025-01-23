@@ -97,6 +97,8 @@
         $(document).ready(function() {
             $('#table-1').DataTable({
                 responsive: true,
+                scrollX: true,
+                autoWidth: true,
             });
         });
     </script>

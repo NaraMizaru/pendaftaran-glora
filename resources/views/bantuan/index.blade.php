@@ -116,7 +116,11 @@
     <script src="{{ asset('vendor/DataTables/datatables.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#table-1').DataTable();
+            $('#table-1').DataTable({
+                responsive: true,
+                scrollX: true,
+                autoWidth: true,
+            });
         });
     </script>
 @endpush
