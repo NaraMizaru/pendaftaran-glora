@@ -23,8 +23,10 @@ class FormController extends Controller
             'du' => 'required',
             'konselor' => 'required',
             'kabaret' => 'required',
-            'bukti_pembayaran' => 'required|file'
+            'bukti_pembayaran' => 'required'
         ]);
+
+        // dd($request->query('pembayaran'));  
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors())->withInput($request->all());
@@ -60,7 +62,14 @@ class FormController extends Controller
 
         if ($request->hasFile('bukti_pembayaran')) {
             $form->bukti_pembayaran = $request->file('bukti_pembayaran')->store('bukti_pembayaran');
+            $form->type = 'transfer';
         }
+
+        if ($request->query('pembayaran') == 'cash') {
+            $form->bukti_pembayaran = $request->bukti_pembayaran;
+            $form->type = 'cash';
+        }
+
         $form->save();
 
         return redirect()->route('form.success')->with('success', 'Formulir berhasil disimpan');

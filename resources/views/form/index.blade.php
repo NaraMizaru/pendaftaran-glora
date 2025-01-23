@@ -35,7 +35,7 @@
                             <div class="ml-auto"></div>
                         </div>
                     </div>
-                    <form action="{{ route('form.daftar') }}" method="POST" enctype="multipart/form-data"
+                    <form action="{{ route('form.daftar', Request::query('pembayaran') == 'cash' ? ['pembayaran' => 'cash'] : '') }}" method="POST" enctype="multipart/form-data"
                         class="form-with-loading">
                         @csrf
                         <div class="card-body">
@@ -166,11 +166,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mt-3">
-                                <label for="">Bukti Pembayaran</label>
-                                <input type="file" class="form-control" name="bukti_pembayaran" id="buktiPembayaran"
-                                    required>
-                            </div>
+                            @if (Request::query('pembayaran') == 'cash')
+                                <div class="form-group mt-3">
+                                    <label for="">Bukti Pembayaran</label>
+                                    <input type="text" class="form-control" name="bukti_pembayaran"
+                                        id="buktiPembayaran" required>
+                                </div>
+                            @else
+                                <div class="form-group mt-3">
+                                    <label for="">Bukti Pembayaran</label>
+                                    <input type="file" class="form-control" name="bukti_pembayaran"
+                                        id="buktiPembayaran" required>
+                                </div>
+                            @endif
                             <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-warning btn-user btn-block btn-loading">
                                     <span class="btn-text">Daftar Sekarang</span>

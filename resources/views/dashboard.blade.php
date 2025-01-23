@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-bordered nowrap w-100 mt-3" id="table-1">
+                <table class="table table-bordered w-100 mt-3" id="table-1">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
