@@ -42,6 +42,7 @@
                             <th class="text-center">PRS Kabaret</th>
                             <th class="text-center">Total Harga</th>
                             <th class="text-center">Bukti Transfer</th>
+                            <th class="text-center">Type</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,10 +57,15 @@
                                 <td class="text-center">{{ $item->konselor }}</td>
                                 <td class="text-center">{{ $item->kabaret }}</td>
                                 <td class="text-center">Rp. {{ number_format($item->total_harga, 0, '.', '.') }}</td>
-                                <td class="text-center"><a type="button" onclick="previewImage(this.href);"
-                                        href="{{ asset('storage/' . $item->bukti_pembayaran) }}"
-                                        class="btn btn-success w-100" data-toggle="modal"
-                                        data-target="#previewImageModal">Lihat</a></td>
+                                @if ($item->type == 'cash')
+                                    <td class="text-center">Rp. {{ number_format($item->bukti_pembayaran, 0, '.', '.') }}</td>
+                                @else
+                                    <td class="text-center"><a type="button" onclick="previewImage(this.href);"
+                                            href="{{ asset('storage/' . $item->bukti_pembayaran) }}"
+                                            class="btn btn-success w-100" data-toggle="modal"
+                                            data-target="#previewImageModal">Lihat</a></td>
+                                @endif
+                                <td class="text-center text-capitalize">{{ $item->type }}</td>
                             </tr>
                         @endforeach
                     </tbody>
