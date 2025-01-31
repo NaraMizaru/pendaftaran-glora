@@ -87,12 +87,19 @@ class DaftaUlangController extends Controller
                     $category = Category::where('nama_kategori', $namaKategori)->first();
 
                     if ($category) {
+                        // Tentukan kuota sesuai dengan tipe sekolah (Wira atau Madya)
                         $kuota = $request->type === 'Wira' ? $category->kuota_wira : $category->kuota_madya;
+
+                        // Jika jumlah team lebih besar dari kuota, batasi jumlah team yang diinput
+                        $jumlahTeam = min($jumlahTeam, $kuota);
 
                         // Generate nomor urut secara acak
                         for ($i = 1; $i <= $jumlahTeam; $i++) {
                             do {
+                                // Generate nomor urut yang belum digunakan
                                 $nomorUrut = rand(1, $kuota);
+
+                                // Periksa apakah nomor urut sudah digunakan dalam kategori ini
                                 $isNomorUrutUsed = DaftarUlang::where('category_id', $category->id)
                                     ->where('nomor_urut', $nomorUrut)
                                     ->exists();
