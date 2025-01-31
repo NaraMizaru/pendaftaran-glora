@@ -123,34 +123,36 @@
             <h5>Data Pendaftaran yang Baru Dikirim</h5>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Sekolah</th>
-                        <th>PP Putra Putri</th>
-                        <th>Tandu Putra Putri</th>
-                        <th>Karikatur</th>
-                        <th>Dapur Umum</th>
-                        <th>Konselor</th>
-                        <th>Kabaret</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($groupedData as $sekolah => $data)
+            <div class="table-responsive">
+                <table class="table table-striped w-100">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $sekolah }}</td>
-                            <td>{{ implode(', ', $data['PP Putra Putri']) }}</td>
-                            <td>{{ implode(', ', $data['Tandu Putra Putri']) }}</td>
-                            <td>{{ implode(', ', $data['Karikatur']) }}</td>
-                            <td>{{ implode(', ', $data['Dapur Umum']) }}</td>
-                            <td>{{ implode(', ', $data['Konselor']) }}</td>
-                            <td>{{ implode(', ', $data['Kabaret']) }}</td>
+                            <th>No</th>
+                            <th>Nama Sekolah</th>
+                            <th>PP Putra Putri</th>
+                            <th>Tandu Putra Putri</th>
+                            <th>Karikatur</th>
+                            <th>Dapur Umum</th>
+                            <th>Konselor</th>
+                            <th>Kabaret</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($groupedData as $sekolah => $data)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $sekolah }}</td>
+                                <td>{{ implode(', ', $data['PP Putra Putri']) }}</td>
+                                <td>{{ implode(', ', $data['Tandu Putra Putri']) }}</td>
+                                <td>{{ implode(', ', $data['Karikatur']) }}</td>
+                                <td>{{ implode(', ', $data['Dapur Umum']) }}</td>
+                                <td>{{ implode(', ', $data['Konselor']) }}</td>
+                                <td>{{ implode(', ', $data['Kabaret']) }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 @endsection
